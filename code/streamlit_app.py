@@ -3,10 +3,14 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-#### Check to see if we need to do all of the data processing in a function like PS3
+DATA_URL = ("https://raw.githubusercontent.com/dmc747/bmi706_project/data/nhanes_dementia_risk_factors.csv")
+@st.cache
+def load_data():
+    data = pd.read_csv(DATA_URL)
+    return data
 
 # Read in the data containing the risk factors for dementia
-dementia_df = pd.read_csv("https://raw.githubusercontent.com/dmc747/bmi706_project/code/nhanes_dementia_risk_factors.csv")
+dementia_df = load_data()
 
 # Create age categories: mid-life (45-64), and late-life (> 65yrs)
 ages = [ (dementia_df['RIDAGEYR']<= 64), (dementia_df['RIDAGEYR'] >= 65)]
