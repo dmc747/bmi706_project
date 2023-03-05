@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
-DATA_URL = ("https://raw.githubusercontent.com/dmc747/bmi706_project/data/nhanes_dementia_risk_factors.csv")
+DATA_URL = ("https://raw.githubusercontent.com/dmc747/bmi706_project/main/data/nhanes_dementia_risk_factors.csv")
 @st.cache
 def load_data():
     data = pd.read_csv(DATA_URL)
