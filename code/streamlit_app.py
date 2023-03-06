@@ -49,6 +49,7 @@ def load_data():
                     5 : 'college graduate or higher', 7: 'Refused', 9: 'Don’t know'}
     
     dementia_df_new['Education'] = dementia_df_new['DMDEDUC2'].map(edu_dictionary)  
+
     return dementia_df_new
 
 # Read in the data containing the risk factors for dementia
@@ -62,7 +63,14 @@ dementia_df = load_data()
 # d)	Prevalence of dementia risk factors in two age groups: midlife (45-64 years) and later life (>= 65 years)
 # e)	Prevalence of 3 or more risk factors in midlife and later life adults
 
-st.write("## Key dementia risk factors in different populations")
+# Page header
+st.title("Trends in Preventable Dementia Risk Factors in the US Population: 1999-2018")
+st.header("A data visualization project by the InsightFactory (Chang Cao, Darcé Costello")
+st.subheader("Data source: [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm)")
+
+st.write("#Did you know that up to 40% of dementia cases could be prevented or delayed by eliminating a handful of risk factors?")
+st.write("#Using the options below, you can explore the prevalence of dementia risk factors over time and for different demographic groups.")
+
 
 # Task 1: line chart: risk factor prevalence over time
 # 1.1 prepare df and calculate prevalence
