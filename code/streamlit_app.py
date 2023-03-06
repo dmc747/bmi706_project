@@ -286,7 +286,7 @@ selector6 = alt.selection_single(
 donut_risk = alt.Chart(df6_new).mark_arc(innerRadius=50, outerRadius=90).encode(
     theta=alt.Theta(field="Prevalence",aggregate='sum', type="quantitative"),
     color=alt.Color(field="Total risk category", type="nominal", 
-                   scale=alt.Scale(domain=['less than 1', '2 and 3', 'greater than 3'], 
+                   scale=alt.Scale(domain=['<= 1', '2 to 3', 'more than 3'], 
                                    range=['green','gray','red'])), # set the highest risk category as red 
     column='Age:N',
     tooltip=['Prevalence:Q', 'Total risk category:N']
