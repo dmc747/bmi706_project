@@ -14,6 +14,10 @@ def load_data():
     # Use np.select to assign ages to categories 
     dementia_df['Age'] = np.select(ages, categories)
 
+    # Create low education risk factor based on education level
+    # 1 = less than high school, 0 = high school or higher
+    dementia_df['low_education_risk'] = np.where(dementia_df['DMDEDUC2'] <= 3, 1, 0)
+
     # Output the list of risk factors 
     riskfactors = dementia_df.columns[dementia_df.columns.str.contains('risk')] 
 
@@ -44,11 +48,11 @@ def load_data():
     dementia_df_new['Ethnicity'] = dementia_df_new['RIDRETH1'].map(eth_dictionary)
  
     # 3. Education
-    edu_dictionary = {1 : '<9th grade', 2: '9th-11th grade', 
-                    3 : 'high school diploma/GED/Equivalent', 4: 'some college or Associate’s degree', 
-                    5 : 'college graduate or higher', 7: 'Refused', 9: 'Don’t know'}
+    #edu_dictionary = {1 : '<9th grade', 2: '9th-11th grade', 
+    #                3 : 'high school diploma/GED/Equivalent', 4: 'some college or Associate’s degree', 
+    #                5 : 'college graduate or higher', 7: 'Refused', 9: 'Don’t know'}
     
-    dementia_df_new['Education'] = dementia_df_new['DMDEDUC2'].map(edu_dictionary)  
+    # dementia_df_new['Education'] = dementia_df_new['DMDEDUC2'].map(edu_dictionary)  
 
     return dementia_df_new
 
