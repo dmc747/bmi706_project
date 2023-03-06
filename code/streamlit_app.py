@@ -258,63 +258,6 @@ bar_age = alt.Chart(df4_new).mark_bar().encode(
 
 bar_age
 
-# Task 5: Prevalence of dementia risk factors by education by year 
-
-# 5.1 calculate prevalence in each combination of education, risk factor, and year
-df5 = dementia_df.groupby(['year','Education','Risk factor']).size().reset_index(name='population')
-df5_1 = dementia_df.groupby(['year','Risk factor','Education','Present']).size().reset_index(name='count')
-df5_new = df5_1.merge(df5, on=['year', 'Risk factor','Education'], how ='left')
-df5_new['Prevalence'] = df5_new.query("Present==1")['count']/df5_new['population']*100
-# data cleanup
-# drop rows with NaN 
-df5_new.dropna(inplace=True) 
-# remove education categories that are not informative
-df5_new = df5_new[df5_new.Education.isin(["Don’t know", "Refused"]) == False]
-
-#5.2 Generate bar chart of prevalences of risk factors in education group by year
-# set year as slider
-slider5 = alt.binding_range(
-    min=df5_new["year"].min(),
-    max=df5_new["year"].max(),
-    step=2,
-    name="Year",
-)
-
-selector5 = alt.selection_single(
-    fields=["year"],
-    bind=slider5,
-    init={"year": df5_new["year"].min()},
-)
-
-
-# generate bar graphs in each ethnicity; add year as selector 
-bar_edu = alt.Chart(df5_new).mark_bar().encode(
-    x=alt.X("Prevalence:Q", title='Prevalence [%]'),
-    y=alt.Y("Risk factor", sort="-x"), 
-    color=alt.Color('Education:N',sort=['<9th grade', 
-                            '9th-11th grade', 
-                            'high school diploma/GED/Equivalent', 
-                            'some college or Associate’s degree', 
-                            'college graduate or higher']),
-    column=alt.Column('Education:N',
-                      sort=['<9th grade', 
-                            '9th-11th grade', 
-                            'high school diploma/GED/Equivalent', 
-                            'some college or Associate’s degree', 
-                            'college graduate or higher']), # order columns by education level
-    tooltip=[
-        alt.Tooltip('Prevalence:Q', title="Prevalence (%)"),'Risk factor'],
-).add_selection(
-    selector5
-).transform_filter(
-    selector5
-).properties(
-    width=120,
-    title='Prevalence of dementia risk factors by education'
-)
-
-bar_edu
-
 # Task 6: Prevalence of multiple risk factors in mid-life and later-life adults by year 
 
 # 6.1 calculate prevalence in each combination of multiple risk factor, age group, and year
