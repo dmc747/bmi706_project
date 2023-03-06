@@ -109,7 +109,7 @@ chart = base.add_selection(
     risk_select1
 ).transform_filter(
     risk_select1
-).properties(title="Prevalence of dementia risk factors over time")
+).properties(title="Prevalence of dementia risk factors over time (you can select a range of years by dragging the mouse over the bar chart")
 
 
 # add brush to link line chart and bar chart 
