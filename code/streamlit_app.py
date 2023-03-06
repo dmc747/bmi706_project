@@ -28,7 +28,7 @@ def load_data():
     riskcategory = [ (dementia_df['Total risk factors'] <= 1), 
                     (dementia_df['Total risk factors'] > 1)  & (dementia_df['Total risk factors'] <= 3), 
                     (dementia_df['Total risk factors'] > 3)]
-    riskname = ['less than 1', '2 and 3', 'greater than 3']
+    riskname = ['<= 1', '2 to 3', 'more than 3']
     dementia_df['Total risk category'] = np.select(riskcategory,riskname)
 
     # Rearrange the df with one risk factor column
