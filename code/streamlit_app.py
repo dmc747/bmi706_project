@@ -65,11 +65,11 @@ dementia_df = load_data()
 
 # Page header
 st.title("Trends in Preventable Dementia Risk Factors in the US Population: 1999-2018")
-st.header("A data visualization project by the InsightFactory (Chang Cao, Darcé Costello")
+st.header("A visualization project by the InsightFactory (Chang Cao, Darcé Costello)")
 st.subheader("Data source: [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm)")
 
-st.write("#Did you know that up to 40% of dementia cases could be prevented or delayed by eliminating a handful of risk factors?")
-st.write("#Using the options below, you can explore the prevalence of dementia risk factors over time and for different demographic groups.")
+st.write("# Did you know that up to 40% of dementia cases could be prevented or delayed by eliminating a handful of risk factors?")
+st.write("# Using the options below, you can explore the prevalence of dementia risk factors over time and for different demographic groups.")
 
 
 # Task 1: line chart: risk factor prevalence over time
