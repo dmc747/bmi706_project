@@ -109,7 +109,7 @@ chart = base.add_selection(
     risk_select1
 ).transform_filter(
     risk_select1
-).properties(title="Prevalence of dementia risk factors over time (you can select a range of years by dragging the mouse over the bar chart")
+).properties(title="Prevalence of dementia risk factors over time (select a range of years by dragging the mouse over the bar chart)")
 
 
 # add brush to link line chart and bar chart 
@@ -239,7 +239,7 @@ selector4 = alt.selection_single(
 )
 
 
-# Generate bar graphs in each ethnicity; add year as selector 
+# Generate bar graphs in each age group; add year as selector 
 bar_age = alt.Chart(df4_new).mark_bar().encode(
     x=alt.X("Prevalence:Q", title='Prevalence [%]'),
     y=alt.Y("Risk factor", sort="-x"), 
