@@ -6,7 +6,7 @@ import numpy as np
 DATA_URL = ("https://raw.githubusercontent.com/dmc747/bmi706_project/main/data/nhanes_dementia_risk_factors.csv")
 @st.cache_data
 def load_data():
-    data = pd.read_csv(DATA_URL)
+    dementia_df = pd.read_csv(DATA_URL)
 
     # Create age categories: mid-life (45-64), and late-life (> 65yrs)
     ages = [ (dementia_df['RIDAGEYR']<= 64), (dementia_df['RIDAGEYR'] >= 65)]
