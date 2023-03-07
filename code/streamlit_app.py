@@ -73,7 +73,7 @@ st.header("A visualization project by the InsightFactory (Chang Cao, Darcé Cost
 st.subheader("Data source: [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm)")
 
 st.write("###### Did you know that up to 40% of dementia cases could be prevented or delayed by eliminating a handful of risk factors?")
-st.write("See the [Lancet Commission Report] (https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30367-6/fulltext?inf_contact_key=779905f3c1735bf89533cbb79fb3e8eaf651f238aa2edbb9c8b7cff03e0b16a0)")
+st.write("See the [Lancet] (https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30367-6/fulltext?inf_contact_key=779905f3c1735bf89533cbb79fb3e8eaf651f238aa2edbb9c8b7cff03e0b16a0) Commission on Dementia Prevention, Intervention, and Care report for more information."
 st.write("###### Using the options below, you can explore the prevalence of dementia risk factors over time and for different demographic groups.")
 
 
